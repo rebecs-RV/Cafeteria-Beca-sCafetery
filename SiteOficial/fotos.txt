@@ -1,0 +1,23 @@
+Coloque aqui as fotos dos produtos, com estes nomes exatos de arquivo
+(formato .jpg — pode ser .jpeg/.png, só ajuste a extensão no HTML se usar outro formato):
+
+torta-frutas-vermelhas.jpg
+coracoes-amanteigados.jpg
+cupcakes-frutados.jpg
+bolo-vulcao.jpg
+pao-de-mel-alfajor.jpg
+torta-mirtilo.jpg
+latte-art-sortida.jpg
+cappuccino-canela.jpg
+latte-art-gatinho.jpg
+iced-latte-cremoso.jpg
+mocha-chantilly.jpg
+chocolate-marshmallow.jpg
+cortado-especial.jpg
+chocolate-quente.jpg
+espresso-puro.jpg
+
+Assim que o arquivo com o nome certo for colocado nesta pasta, a foto aparece
+automaticamente no card do produto (tanto nos "Favoritos" quanto no cardápio
+completo). Enquanto não tiver a foto, aparece um espaço reservado com ícone
+de xícara e o aviso "adicione a foto".

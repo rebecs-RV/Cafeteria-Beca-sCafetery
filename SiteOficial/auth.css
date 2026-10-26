@@ -1,0 +1,109 @@
+/* Reaproveita a paleta e a tipografia do site da Beca's Cafetery */
+
+:root{
+  --peach: #F2D89E;
+  --latte: #F1E1C0;
+  --cream: #FFF8EC;
+  --espresso: #5A3620;
+  --espresso-2: #3E2415;
+  --rust: #A9432E;
+  --muted: #8A6647;
+  --line: rgba(90,54,32,0.24);
+  --coffee-pattern: url("assets/coffee-pattern.png");
+  --font-display: 'Baloo 2', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color: var(--peach);
+  background-image: var(--coffee-pattern);
+  background-repeat: repeat;
+  font-family: var(--font-body);
+  color: var(--espresso-2);
+  padding: 24px;
+}
+
+.auth-card{
+  width:100%;
+  max-width: 380px;
+  background: var(--latte);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 40px 34px;
+  box-shadow: 0 24px 50px -20px rgba(62,36,21,0.35);
+}
+
+.auth-card h1{
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin: 0 0 6px;
+  text-align:center;
+}
+
+.auth-card .sub{
+  text-align:center;
+  color: var(--espresso);
+  font-size:0.9rem;
+  margin-bottom: 26px;
+}
+
+.field{ margin-bottom:16px; }
+
+.field label{
+  display:block;
+  font-size:0.82rem;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.field input{
+  width:100%;
+  padding:11px 14px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background: var(--cream);
+  font-family: var(--font-body);
+  font-size:0.95rem;
+  color: var(--espresso-2);
+}
+.field input:focus{ outline:2px solid var(--rust); outline-offset:1px; }
+
+.btn{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:999px;
+  background: var(--rust);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-weight:600;
+  font-size:0.98rem;
+  cursor:pointer;
+  transition: background .2s ease;
+}
+.btn:hover{ background: var(--espresso); }
+
+.msg{
+  padding:12px 14px;
+  border-radius:12px;
+  font-size:0.85rem;
+  margin-bottom:18px;
+}
+.msg.erro{ background:#F4D9D2; color:#7A2A1B; }
+.msg.sucesso{ background:#E3ECC7; color:#4B5A1E; }
+
+.auth-links{
+  text-align:center;
+  margin-top:20px;
+  font-size:0.85rem;
+  color: var(--espresso);
+}
+.auth-links a{ color: var(--rust); font-weight:600; text-decoration:none; }
+.auth-links a:hover{ text-decoration:underline; }

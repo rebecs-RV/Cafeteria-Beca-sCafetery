@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beca's Cafetery — Café &amp; Confeitaria Caseira</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+  /* ============================================
+     BECA'S CAFETERY — tokens extraídos da logo
+     Peach:      #F5DCAA  fundo pergaminho quente
+     Peach-2:    #EFCE93  variação para seções
+     Cream:      #FFF8EC  cartões / papel claro
+     Espresso:   #5A3620  marrom do traço/letras
+     Espresso-2: #3E2415  marrom escuro, footer
+     Rust:       #A9432E  vermelho-café da xícara
+     Gold:       #C98A3B  dourado quente, detalhe
+     Display:    Baloo 2 — redondo/encorpado, igual ao lettering da logo
+     Serif:      Fraunces — subtítulos, texto de apoio
+     Body:       Manrope
+     Utility:    Space Mono — preços, códigos de lote
+     ============================================ */
+
+  :root{
+    --peach: #F2D89E;
+    --peach-2: #E9C989;
+    --latte: #F1E1C0;
+    --latte-2: #E7D0A3;
+    --cream: #FFF8EC;
+    --espresso: #5A3620;
+    --espresso-2: #3E2415;
+    --rust: #A9432E;
+    --gold: #C98A3B;
+    --muted: #8A6647;
+    --line: rgba(90,54,32,0.24);
+    --coffee-pattern: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIj4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNUEzNjIwIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuMDciPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMiwyNCkgcm90YXRlKDE1KSI+PGVsbGlwc2UgY3g9IjAiIGN5PSIwIiByeD0iMTQiIHJ5PSI5Ii8+PHBhdGggZD0iTSAtMTAgMCBRIDAgLTQgMTAgMCIvPjwvZz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAyLDM4KSByb3RhdGUoLTI1KSI+PGVsbGlwc2UgY3g9IjAiIGN5PSIwIiByeD0iMTIiIHJ5PSI4Ii8+PHBhdGggZD0iTSAtOSAwIFEgMCAtMyA5IDAiLz48L2c+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4LDEwMikgcm90YXRlKDYwKSI+PGVsbGlwc2UgY3g9IjAiIGN5PSIwIiByeD0iMTMiIHJ5PSI4LjUiLz48cGF0aCBkPSJNIC05IDAgUSAwIC0zIDkgMCIvPjwvZz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTMyLDEyMikgcm90YXRlKC0xMCkiPjxlbGxpcHNlIGN4PSIwIiBjeT0iMCIgcng9IjExIiByeT0iNyIvPjxwYXRoIGQ9Ik0gLTggMCBRIDAgLTMgOCAwIi8+PC9nPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LDE0MCkgcm90YXRlKDQwKSI+PGVsbGlwc2UgY3g9IjAiIGN5PSIwIiByeD0iMTAiIHJ5PSI2LjUiLz48cGF0aCBkPSJNIC03IDAgUSAwIC0zIDcgMCIvPjwvZz4KPC9nPgo8L3N2Zz4=");
+
+    --font-display: 'Baloo 2', sans-serif;
+    --font-serif: 'Fraunces', serif;
+    --font-body: 'Manrope', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background-color: var(--peach);
+    background-image: var(--coffee-pattern);
+    background-repeat: repeat;
+    color: var(--espresso-2);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a{ color: inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  img, svg{ display:block; max-width:100%; }
+
+  :focus-visible{
+    outline: 2px solid var(--rust);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rust);
+  }
+
+  /* ---------- header / nav ---------- */
+
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(242,216,158,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 14px 32px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+  }
+  .brand img{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 2px var(--peach), 0 0 0 3px var(--espresso);
+  }
+  .brand-word{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--espresso-2);
+    line-height: 1.05;
+  }
+  .brand-word em{
+    display:block;
+    font-style: normal;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rust);
+  }
+
+  .nav-links{
+    display:flex;
+    gap: 36px;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .nav-links a{
+    position: relative;
+    padding-bottom: 4px;
+    opacity: 0.85;
+    transition: opacity .2s ease;
+  }
+  .nav-links a:hover{ opacity: 1; }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0%; height:2px;
+    border-radius: 2px;
+    background: var(--rust);
+    transition: width .25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+
+  .nav-cta{
+    display:inline-block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: var(--rust);
+    color: var(--cream);
+    padding: 10px 22px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .nav-cta:hover{ background: var(--espresso); transform: translateY(-1px); }
+
+  /* ---------- hero ---------- */
+
+  .hero{
+    position: relative;
+    padding: 84px 32px 90px;
+    overflow: hidden;
+  }
+
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset: -30% -10% auto -10%;
+    height: 520px;
+    background: radial-gradient(55% 55% at 50% 30%, rgba(169,67,46,0.14), transparent 70%);
+    pointer-events:none;
+  }
+
+  .hero-grid{
+    position: relative;
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items:center;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .hero h1{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.4rem, 5.6vw, 4.2rem);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: var(--espresso-2);
+    margin-top: 18px;
+  }
+
+  .hero h1 .accent{
+    color: var(--rust);
+  }
+
+  .hero p.lede{
+    margin: 22px 0 0;
+    max-width: 460px;
+    color: var(--espresso);
+    font-size: 1.05rem;
+  }
+
+  .hero-actions{
+    margin-top: 36px;
+    display:flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn{
+    display:inline-block;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+
+  .btn-primary{
+    background: var(--rust);
+    color: var(--cream);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); background: var(--espresso); }
+
+  .btn-ghost{
+    border: 2px solid var(--espresso-2);
+    color: var(--espresso-2);
+  }
+  .btn-ghost:hover{ transform: translateY(-2px); border-color: var(--rust); color: var(--rust); }
+
+  .hero-badge{
+    position: relative;
+    display:flex;
+    justify-content:center;
+  }
+  .hero-badge img{
+    width: min(100%, 380px);
+    border-radius: 50%;
+    box-shadow: 0 24px 50px -18px rgba(62,36,21,0.45);
+  }
+
+  /* ---------- signature divider: galho de folhas (igual à logo) ---------- */
+
+  .branch-divider{
+    padding: 4px 32px 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap: 18px;
+    opacity: 0.9;
+  }
+  .branch-divider svg{ width: 40px; height: auto; }
+  .branch-divider .rule{
+    flex: 1;
+    max-width: 220px;
+    height: 1px;
+    background: var(--line);
+  }
+  .branch-divider span{
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- section shell ---------- */
+
+  section{ padding: 88px 0; }
+
+  .alt-bg{
+    background-color: var(--peach-2);
+    background-image: var(--coffee-pattern);
+    background-repeat: repeat;
+  }
+
+  .section-head{
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 26px;
+    flex-wrap: wrap;
+  }
+
+  .section-head h2{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    margin-top: 6px;
+    color: var(--espresso-2);
+  }
+
+  .section-head p{
+    max-width: 340px;
+    color: var(--espresso);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- about ---------- */
+
+  .about{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items:center;
+  }
+
+  .about-visual{
+    aspect-ratio: 4/5;
+    border-radius: 22px;
+    background: linear-gradient(155deg, var(--espresso-2), #2A160D 80%);
+    border: 4px solid var(--espresso);
+    position: relative;
+    overflow:hidden;
+    box-shadow: 0 18px 40px -16px rgba(62,36,21,0.35), 0 0 0 3px var(--peach);
+  }
+  .about-visual video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display:block;
+  }
+  .about-visual .video-caption{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding: 18px 20px 16px;
+    background: linear-gradient(0deg, rgba(30,17,10,0.82), transparent);
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    pointer-events:none;
+  }
+  .about-visual .video-caption span{
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--peach);
+  }
+  .about-visual .video-caption .dot{
+    width: 7px; height:7px;
+    border-radius: 50%;
+    background: var(--rust);
+    flex-shrink:0;
+  }
+
+  .about-copy p{
+    color: var(--espresso);
+    margin-bottom: 18px;
+    max-width: 46ch;
+  }
+
+  .about-stats{
+    display:flex;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  .about-stats div strong{
+    display:block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--rust);
+  }
+  .about-stats div span{
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- menu ---------- */
+
+  .menu-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    overflow: hidden;
+  }
+
+  .menu-item{
+    display:flex;
+    gap: 16px;
+    align-items:flex-start;
+    background: var(--latte);
+    padding: 26px 24px;
+    transition: background .25s ease;
+  }
+  .menu-item:hover{ background: var(--latte-2); }
+
+  .menu-photo{
+    flex-shrink: 0;
+    width: 86px;
+    height: 86px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid var(--espresso);
+    background: rgba(90,54,32,0.05);
+  }
+  .menu-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display:block;
+  }
+  .menu-photo img.ph{
+    object-fit: contain;
+    padding: 4px;
+    opacity: 0.85;
+  }
+
+  .menu-content{ min-width: 0; }
+
+  .menu-item .lote{
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .menu-item h3{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+    color: var(--espresso-2);
+  }
+
+  .menu-item p{
+    color: var(--espresso);
+    font-size: 0.87rem;
+    margin-bottom: 14px;
+  }
+
+  .menu-item .price{
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--rust);
+    font-size: 0.95rem;
+  }
+
+  .menu-subhead{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    margin: 52px 0 22px;
+  }
+  .menu-subhead:first-of-type{ margin-top: 0; }
+  .menu-subhead h3{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--espresso-2);
+    white-space: nowrap;
+  }
+  .menu-subhead .rule{
+    flex:1;
+    height:1px;
+    background: var(--line);
+  }
+
+  /* ---------- cardápio completo: modal aberto dentro do site ---------- */
+
+  .menu-modal-overlay{
+    display:none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(30,17,10,0.68);
+    backdrop-filter: blur(3px);
+    padding: 5vh 20px;
+    overflow-y:auto;
+  }
+  .menu-modal-overlay.active{ display:block; }
+
+  .menu-modal{
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--latte);
+    background-image: var(--coffee-pattern);
+    background-repeat: repeat;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    box-shadow: 0 30px 70px -20px rgba(20,10,5,0.55);
+    overflow:hidden;
+  }
+
+  .menu-modal-head{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap: 20px;
+    padding: 32px 36px 22px;
+    background: var(--latte);
+    border-bottom: 1px solid var(--line);
+  }
+  .menu-modal-head h2{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    margin-top: 6px;
+    color: var(--espresso-2);
+  }
+
+  .menu-modal-close{
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    color: var(--espresso-2);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .menu-modal-close:hover{
+    background: var(--rust);
+    color: var(--cream);
+    transform: rotate(90deg);
+  }
+
+  .menu-modal-body{
+    padding: 8px 36px 40px;
+  }
+
+  @media (max-width: 560px){
+    .menu-modal-head{ padding: 24px 22px 18px; }
+    .menu-modal-body{ padding: 4px 22px 32px; }
+  }
+
+  /* ---------- hours / location ---------- */
+
+  .info{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    background: var(--latte);
+    border-radius: 24px;
+    padding: 52px;
+    border: 1px solid var(--line);
+  }
+
+  .info h3{
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--espresso-2);
+  }
+
+  .hours-row{
+    display:flex;
+    justify-content:space-between;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 0.94rem;
+  }
+  .hours-row span:last-child{
+    font-family: var(--font-mono);
+    color: var(--espresso);
+  }
+
+  .addr p{
+    color: var(--espresso);
+    margin-bottom: 22px;
+  }
+
+  .contact-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 0.94rem;
+  }
+  .contact-row:last-child{ border-bottom:none; }
+  .contact-row span:first-child{ color: var(--espresso-2); font-weight:600; }
+  .contact-row a{
+    font-family: var(--font-mono);
+    color: var(--rust);
+    transition: color .2s ease;
+  }
+  .contact-row a:hover{ color: var(--espresso-2); }
+
+  /* ---------- footer ---------- */
+
+  footer{
+    padding: 52px 32px 36px;
+    text-align:center;
+    background: var(--espresso-2);
+    color: var(--peach);
+  }
+
+  footer .brand{ justify-content:center; margin-bottom: 16px; }
+  footer .brand-word{ color: var(--peach); }
+  footer .brand-word em{ color: var(--gold); }
+  footer .brand img{ box-shadow: 0 0 0 2px var(--espresso-2), 0 0 0 3px var(--gold); }
+
+  footer .foot-links{
+    display:flex;
+    gap: 24px;
+    justify-content:center;
+    margin: 18px 0 22px;
+    font-size: 0.88rem;
+    color: rgba(245,220,170,0.75);
+  }
+  footer .foot-links a:hover{ color: var(--gold); }
+
+  footer .fine{
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: rgba(245,220,170,0.5);
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- responsive ---------- */
+
+  @media (max-width: 900px){
+    .hero-grid{ grid-template-columns: 1fr; text-align:center; }
+    .hero p.lede{ margin-left:auto; margin-right:auto; }
+    .hero-actions{ justify-content:center; }
+    .hero-badge{ order:-1; }
+    .hero-badge img{ width: 220px; }
+  }
+
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+    .about{ grid-template-columns: 1fr; }
+    .about-visual{ order:-1; aspect-ratio: 16/9; }
+    .menu-grid{ grid-template-columns: 1fr; }
+    .info{ grid-template-columns: 1fr; padding: 36px 24px; }
+  }
+
+  @media (max-width: 520px){
+    .nav{ padding: 12px 20px; }
+    .hero{ padding: 60px 20px 60px; }
+    .wrap{ padding: 0 20px; }
+    section{ padding: 60px 0; }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="brand">
+      <img src="assets/logo.png" alt="Logo Beca's Cafetery">
+      <span class="brand-word">Beca's Cafetery<em>Café &amp; Confeitaria</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#cardapio">Cardápio</a></li>
+      <li><a href="#horario">Horário</a></li>
+    </ul>
+    <button type="button" class="nav-cta" onclick="document.getElementById('cardapio-modal').classList.add('active'); document.body.style.overflow='hidden';">Ver cardápio</button>
+      <a href="login.php" class="nav-cta">Entrar</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Café &amp; Confeitaria Caseira · Fortaleza, CE</span>
+        <h1>Café bom<br>é café <span class="accent">com história</span></h1>
+        <p class="lede">Grãos selecionados, torrados devagar e servidos com carinho. Beca's Cafetery é o cantinho da vizinhança pra tomar um café de verdade.</p>
+        <div class="hero-actions">
+          <a href="#horario" class="btn btn-ghost">Como chegar</a>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <img src="assets/logo.png" alt="Xícara com coração de leite — logo Beca's Cafetery">
+      </div>
+    </div>
+  </section>
+
+  <div class="branch-divider" aria-hidden="true">
+    <div class="rule"></div>
+    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 54 C 30 40, 18 34, 10 26 C 20 26, 28 30, 30 38 C 32 30, 40 26, 50 26 C 42 34, 30 40, 30 54 Z" fill="#5A3620"/>
+    </svg>
+    <div class="rule"></div>
+  </div>
+
+  <section id="sobre">
+    <div class="wrap about">
+      <div class="about-visual">
+        <video
+          src="https://assets.mixkit.co/active_storage/video_items/99889/1717186708/99889-video-720.mp4"
+          poster="https://assets.mixkit.co/active_storage/video_items/99889/1717186708/99889-video-thumb-720-0.jpg"
+          autoplay muted loop playsinline controls
+          aria-label="Cliente experimentando um café da Beca's Cafetery">
+        </video>
+        <div class="video-caption"><span class="dot"></span><span>Fresquinho, direto do balcão</span></div>
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow">Nossa história</span>
+        <h2 style="font-family:var(--font-display); font-weight:700; font-size:clamp(1.7rem,3vw,2.3rem); margin:12px 0 20px; color:var(--espresso-2);">Da roça pra xícara</h2>
+        <p>Beca começou torrando café em casa pros vizinhos e hoje mantém a mesma receita: grãos de pequenos produtores, torra em lotes pequenos e atendimento de quem lembra seu nome.</p>
+        <p>Cada saco de café que sai daqui carrega o código do lote, a origem e a data da torra — porque café bom a gente rastreia com orgulho.</p>
+        <div class="about-stats">
+          <div><strong>12</strong><span>Anos de casa</span></div>
+          <div><strong>6</strong><span>Origens de grão</span></div>
+          <div><strong>100%</strong><span>Torra artesanal</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cardapio" class="alt-bg">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Cardápio</span>
+          <h2>Os favoritos da casa</h2>
+        </div>
+        <p>Uma provinha do que mais agrada por aqui — água na boca garantida. O cardápio completo é só um clique.</p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/bolo-vulcao.jpg" alt="Bolo Vulcão" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">♥ MAIS PEDIDO</div>
+            <h3>Bolo Vulcão</h3>
+            <p>Bolo fofinho no sabor escolhido, transbordando cobertura — o queridinho da casa é o de chocolate.</p>
+            <div class="price">R$ 37,00</div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/torta-frutas-vermelhas.jpg" alt="Torta de Frutas Vermelhas" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">♥ MAIS PEDIDO</div>
+            <h3>Torta de Frutas Vermelhas</h3>
+            <p>Massa amanteigada, creme suave e frutas vermelhas fresquinhas por cima.</p>
+            <div class="price">R$ 27,00</div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/cappuccino-canela.jpg" alt="Cappuccino Canela" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">♥ MAIS PEDIDO</div>
+            <h3>Cappuccino Canela</h3>
+            <p>Cappuccino cremoso com canela e um biscoitinho amanteigado do lado.</p>
+            <div class="price">R$ 12,00</div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/latte-art-gatinho.jpg" alt="Latte Art Gatinho" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">♥ MAIS PEDIDO</div>
+            <h3>Latte Art Gatinho</h3>
+            <p>Café com leite bem cremoso, com aquele latte art que derrete o coração.</p>
+            <div class="price">R$ 12,00</div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/chocolate-marshmallow.jpg" alt="Chocolate Quente com Marshmallow" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">♥ MAIS PEDIDO</div>
+            <h3>Chocolate Quente com Marshmallow</h3>
+            <p>Quentinho e aveludado, com marshmallows tostadinhos por cima.</p>
+            <div class="price">R$ 14,50</div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/pao-de-mel-alfajor.jpg" alt="Pão de Mel Alfajor" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">♥ MAIS PEDIDO</div>
+            <h3>Pão de Mel Alfajor</h3>
+            <p>Massa de mel macia, recheada com doce de leite e coberta de chocolate nobre.</p>
+            <div class="price">R$ 28,00</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:center; margin-top:44px;">
+        <button type="button" class="btn btn-primary" onclick="document.getElementById('cardapio-modal').classList.add('active'); document.body.style.overflow='hidden';">
+          Ver cardápio completo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="menu-modal-overlay" id="cardapio-modal" aria-hidden="true">
+    <div class="menu-modal" role="dialog" aria-modal="true" aria-labelledby="cardapio-modal-title">
+      <div class="menu-modal-head">
+        <div>
+          <span class="eyebrow">Cardápio completo</span>
+          <h2 id="cardapio-modal-title">Tudo o que a Beca's tem pra oferecer</h2>
+        </div>
+        <button type="button" class="menu-modal-close" aria-label="Fechar cardápio" onclick="document.getElementById('cardapio-modal').classList.remove('active'); document.body.style.overflow='';">&times;</button>
+      </div>
+
+      <div class="menu-modal-body">
+        <div class="menu-subhead">
+          <h3>Doces da casa</h3>
+          <div class="rule"></div>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/torta-frutas-vermelhas.jpg" alt="Torta de Frutas Vermelhas" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">TORTA</div>
+            <h3>Torta de Frutas Vermelhas</h3>
+            <p>Massa amanteigada com creme suave e frutas vermelhas frescas por cima.</p>
+            <div class="price">R$ 27,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/coracoes-amanteigados.jpg" alt="Corações Amanteigados" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">CAIXINHA · 10 UNID</div>
+            <h3>Corações Amanteigados</h3>
+            <p>Massa amanteigada macia com recheio de geleia de morango cremosa.</p>
+            <div class="price">R$ 26,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/cupcakes-frutados.jpg" alt="Cupcakes Frutados" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">4 UNID</div>
+            <h3>Cupcakes Frutados</h3>
+            <p>Massa fofinha com cobertura de buttercream e frutas frescas sortidas.</p>
+            <div class="price">R$ 20,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/bolo-vulcao.jpg" alt="Bolo Vulcão" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">FATIA</div>
+            <h3>Bolo Vulcão</h3>
+            <p>Bolo fofinho no sabor escolhido, com a cobertura de sua preferência — o mais pedido é chocolate.</p>
+            <div class="price">R$ 37,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/pao-de-mel-alfajor.jpg" alt="Pão de Mel Alfajor" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">4 UNID</div>
+            <h3>Pão de Mel Alfajor</h3>
+            <p>Massa de mel macia, recheada com doce de leite e coberta com chocolate nobre.</p>
+            <div class="price">R$ 28,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/torta-mirtilo.jpg" alt="Torta de Mirtilo" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">FATIA</div>
+            <h3>Torta de Mirtilo</h3>
+            <p>Base crocante de chocolate, creme de cream cheese e calda de mirtilos.</p>
+            <div class="price">R$ 27,00</div>
+          </div>
+        </div>
+        </div>
+
+        <div class="menu-subhead">
+          <h3>Bebidas</h3>
+          <div class="rule"></div>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/latte-art-sortida.jpg" alt="Latte Art Sortida" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">QUENTE</div>
+            <h3>Latte Art Sortida</h3>
+            <p>Café com leite, latte art clássico e cremosidade perfeita.</p>
+            <div class="price">R$ 12,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/cappuccino-canela.jpg" alt="Cappuccino Canela" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">QUENTE</div>
+            <h3>Cappuccino Canela</h3>
+            <p>Cappuccino cremoso com canela e biscoitinho amanteigado.</p>
+            <div class="price">R$ 12,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/latte-art-gatinho.jpg" alt="Latte Art Gatinho" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">QUENTE</div>
+            <h3>Latte Art Gatinho</h3>
+            <p>A cremosidade do café com leite, gelo opcional e toque de baunilha.</p>
+            <div class="price">R$ 12,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/iced-latte-cremoso.jpg" alt="Iced Latte Cremoso" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">GELADA</div>
+            <h3>Iced Latte Cremoso</h3>
+            <p>Café gelado cremoso com leite, gelo e toque de baunilha.</p>
+            <div class="price">R$ 16,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/mocha.jpg" alt="Mocha com Chantilly" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">QUENTE</div>
+            <h3>Mocha com Chantilly</h3>
+            <p>Expresso intenso com chocolate, leite vaporizado e chantilly.</p>
+            <div class="price">R$ 18,50</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/chocolate-marshmallow.jpg" alt="Chocolate Quente com Marshmallow" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">QUENTE</div>
+            <h3>Chocolate Quente com Marshmallow</h3>
+            <p>Bebida quentinha e aveludada com marshmallows tostados por cima.</p>
+            <div class="price">R$ 14,50</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/cortado-especial.jpg" alt="Cortado Especial" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">CLÁSSICO</div>
+            <h3>Cortado Especial</h3>
+            <p>Dose dupla de espresso com espuma de leite aveludado.</p>
+            <div class="price">R$ 6,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/chocolate-quente.png" alt="Chocolate Quente" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">QUENTE</div>
+            <h3>Chocolate Quente</h3>
+            <p>Chocolate quente super cremoso com chantilly e raspas de chocolate.</p>
+            <div class="price">R$ 17,00</div>
+          </div>
+        </div>
+          <div class="menu-item">
+          <div class="menu-photo">
+            <img src="assets/produtos/espresso-puro.jpg" alt="Espresso Puro" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGMUUxQzAiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOEE2NjQ3IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yOCA0MCBoMzQgdjIyIGExNyAxNyAwIDAgMSAtMTcgMTcgaDAgYTE3IDE3IDAgMCAxIC0xNyAtMTcgWiIvPgo8cGF0aCBkPSJNNjIgNDQgaDggYTggOCAwIDAgMSAwIDE2IGgtOCIvPgo8cGF0aCBkPSJNMzYgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNDUgNDAgYzAgLTYgNCAtNiA0IC0xMiBNNTQgNDAgYzAgLTYgNCAtNiA0IC0xMiIvPgo8L2c+Cjx0ZXh0IHg9IjUwIiB5PSI4NiIgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzhBNjY0NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+YWRpY2lvbmUgYSBmb3RvPC90ZXh0Pgo8L3N2Zz4=';this.classList.add('ph');">
+          </div>
+          <div class="menu-content">
+            <div class="lote">CLÁSSICO</div>
+            <h3>Espresso Puro</h3>
+            <p>Café 100% arábica, encorpado e aromático, extraído na hora.</p>
+            <div class="price">R$ 5,00</div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="horario" style="scroll-margin-top: 90px;">
+    <div class="wrap">
+      <div class="info">
+        <div class="hours">
+          <h3>Horário de funcionamento</h3>
+          <div class="hours-row"><span>Segunda a sexta</span><span>07h – 19h</span></div>
+          <div class="hours-row"><span>Sábado</span><span>08h – 20h</span></div>
+          <div class="hours-row"><span>Domingo</span><span>08h – 13h</span></div>
+        </div>
+        <div class="addr">
+          <h3>Endereço</h3>
+          <p>Rua das Cerejeiras, 142 — Aldeota<br>Fortaleza, CE</p>
+          <div class="contact-row"><span>WhatsApp</span><a href="https://wa.me/5585992076796" target="_blank" rel="noopener">(85) 99207-6796</a></div>
+          <div class="contact-row"><span>Instagram</span><a href="https://instagram.com/beca_s_cafetery" target="_blank" rel="noopener">@beca_s_cafetery</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="#top" class="brand">
+    <img src="assets/logo.png" alt="Logo Beca's Cafetery">
+    <span class="brand-word">Beca's Cafetery<em>Café &amp; Confeitaria</em></span>
+  </a>
+  <div class="foot-links">
+    <a href="#sobre">Sobre</a>
+    <a href="#cardapio">Cardápio</a>
+    <a href="#horario">Horário</a>
+  </div>
+  <div class="fine">© 2026 BECA'S CAFETERY — TORRA PRÓPRIA</div>
+</footer>
+
+<script>
+  (function(){
+    var overlay = document.getElementById('cardapio-modal');
+    if(!overlay) return;
+
+    overlay.addEventListener('click', function(e){
+      if(e.target === overlay){
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && overlay.classList.contains('active')){
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  })();
+</script>
+</body>
+</html>
